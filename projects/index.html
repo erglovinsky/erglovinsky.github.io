@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <title>Eve Glovinsky's Website</title>
+        <style>
+            body {
+                background-image: url(https://i.imgur.com/ciAhFtU.png);
+                padding: 10px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+
+            /* navigation menu */
+            nav {
+                background: rgb(221,31,120);
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border: 2px rgb(251,176,203) dashed;
+                border-radius: 20px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: rgb(251,176,203);
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: #154c79 underline;
+                color: rgb(251,176,203);
+            }
+
+            /* main container area beneath menu */
+            main {
+                background: rgb(251,176,203);
+                display: flex;
+                border-radius: 20px;
+                border: 2px rgb(221,31,120) dashed;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar-img {
+                width: 200px;
+                border-radius: 20px;
+                border: 4px rgb(221,31,120) solid;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+                color: #154c79;
+            }
+            #interests {
+                border: 4px rgb(221,31,120) solid;
+                border-radius: 20px;
+                padding: 8px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+            #list-style { 
+                list-style-type: square;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- All content goes here -->
+        <div id="all-contents">
+            <nav>
+                <h1>Eve Glovinsky's Website</h1>
+                <ul id="nav-ul">
+                    <li class="nav-li">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <!-- Sidebar section -->
+                <div class="sidebar">
+                    <img class="sidebar-img" src="https://i.imgur.com/EIs61BI.png">
+                </div>
+
+                <!-- Content section -->
+                <div class="content">
+                    <h2>Eve Glovinsky</h2>
+                    <p>Student at Benjamin 
+                        Franklin High School </p>
+                    <!-- Interests section -->
+                    <div id="interests">
+                        <h3>Interests</h3>
+                        <ul id="list-style">
+                            <li>Science</li>
+                            <li>Math</li>
+                            <li>Tennis</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
