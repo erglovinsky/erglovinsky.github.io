@@ -2,11 +2,114 @@
 <html>
     <head>
         <title>Eve Glovinsky's Website</title>
+        <style type="text/css">
+            body {
+                background-image: url(https://i.imgur.com/ciAhFtU.png);
+                padding: 10px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            header {
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+    
+            /* navigation menu */
+            nav {
+                background: rgb(221,31,120);
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border: 2px rgb(251,176,203) dashed;
+                border-radius: 20px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: rgb(251,176,203);
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            .nav-a {
+                text-decoration: #154c79 underline;
+                color: rgb(251,176,203);
+            }
+    
+            /* main container area beneath menu */
+            main {
+                background: rgb(251,176,203);
+                display: flex;
+                border-radius: 20px;
+                border: 2px rgb(221,31,120) dashed;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            
+            /* portfolio styles */
+            .content h1 {
+                color: #154c79;
+            }
+            
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: rgb(177,210,171);
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: #154c79;
+            }
+        </style>
     </head>
 
     <body>
       <div id="all-contents">
-      
+          <nav>
+              <!-- Nav stuff here -->
+              <h1>Eve Glovinsky's Website</h1>
+              <ul id="nav-ul">
+                  <li class="nav-li">
+                      <a class="nav-a" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-li">
+                      <a class="nav-a" href="portfolio.html">Portfolio</a>
+                  </li>
+              </ul>
+          </nav>
+          <main>
+              <div class="content">
+                  <h1>Portfolio</h1>
+                  <ul id="portfolio">
+                       <li><a href="projects/platformer/">Platformer : A cannon-dodging, collectible-grabbing adventure game for Halleb0t</a></li>
+                       <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+                       <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes</a></li>
+                  </ul>
+              </div>
+          </main>
       </div>
     </body>
 </html>
