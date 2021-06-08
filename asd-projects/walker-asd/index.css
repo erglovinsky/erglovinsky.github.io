@@ -1,6 +1,6 @@
 
 body {
-  background-image: url(https://i.imgur.com/UaADHCe.png);
+  background-image: url(https://ak.picdn.net/shutterstock/videos/2623664/thumb/12.jpg);
 }
 
 #board {
@@ -19,7 +19,7 @@ body {
 
 /* fish */
 #gameItem { 
-  background-image: url(https://i.imgur.com/UEKcvKY.png);
+  background-image: url("img/Screen Shot 2021-06-08 at 2.40.45 PM.png");
   background-size: 70px, 50px;
   width: 70px;
   height: 50px;
@@ -27,7 +27,7 @@ body {
 }
 
 #shark {
-  background-image: url(https://i.imgur.com/pdX4ueX.png);
+  background-image: url("img/pdX4ueX - Imgur.png");
   background-size: 150px 100px;
   width: 150px;
   height: 100px;
