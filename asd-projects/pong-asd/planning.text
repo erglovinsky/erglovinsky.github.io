@@ -1,0 +1,56 @@
+Pong Planning
+
+USER STORY/GAMEPLAY
+* Describe the gameplay
+In Pong, two players control paddles on opposite sides of the screen. A ball bounces between the paddles, and the players try to hit the ball 
+back and forth between the paddles. When the ball gets past a player's paddle, the other player earns a point and the game resets. The game ends when a player earns 
+11 points.
+
+* What are the conditions when the game begins?
+When the game begins, the two paddles are centered on opposite sides of the screen. The points for each player are 
+displayed on each side of the screen. The ball begins in the center and starts moving to one side of the screen.
+
+* Does the game have an end? If so, what are the conditions for when it ends?
+The game ends when a player earns 11 points. When the game ends, the ball and paddles 
+stop moving. "Game over" and "Player 1 wins" or "Player 2 wins" are displayed on the screen. There will also be a button for the player to restart the game.
+
+* What ifs will there be?
+    * If a player clicks the button to start the game, the game will start.
+    * If a player presses the up and down or W and S keys, the paddles move up and down.
+    * If the ball hits a paddle, it bounces off.
+    * If the ball hits the top or bottom of the screen, it bounces off.
+    * If the ball passes a player's paddle, the other player earns a point.
+    * If a player earns a point, the ball resets and the point display updates.
+    * If a player earns 11 points, the game ends.
+
+
+VISUAL GAME COMPONENTS
+* What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.: The visual game components are the board, the two 
+paddles, the dotted line in the center, and the point counters.
+    * Which will be static? (the board): The board, the center line, and the point counters will be static.
+    * Which will be animated? (the box): The ball and the paddles will be animated.
+
+* What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+    * positionYLeft
+    * speedYLeft
+    * positionYRight
+    * speedYRight
+    * positionXBall
+    * positionYBall
+    * speedXBall
+    * speedYBall
+    * pointsLeft
+    * pointsRight
+
+
+EVENTS/LOGIC
+* What events will occur in this game? (timer events, keyboard events, clicking events?)
+    * Keyboard events will occur when players press the up and down arrows and W and S keys to control the paddles.
+    * Clicking events will occur when the player clicks on a button to start the game.
+
+* How do those events affect the data of the program?
+The various events will change the position and speed of the paddles and ball at different points in the game.
+
+* For each "event", write out the high-level logic of what will happen.
+    * Keyboard events: Pressing a key down will execute a function for the paddles to move up or down at a certain speed. Releasing the key will execute another function to return the speed back to 0.
+    * Clicking events: Clicking on a button will execute a function to begin the game.
