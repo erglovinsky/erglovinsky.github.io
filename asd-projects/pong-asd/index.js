@@ -12,11 +12,34 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
    
   // Game Item Objects
+  function factoryFunction(id){
+    return {
+        id: id,
+        x: parseFloat($(id).css("left")),
+        y: parseFloat($(id).css("top")),
+        width: $(id).width(),
+        height: $(id).height(),
+        speedX: 0,
+        speedY: 0,
+    }
+
+    var paddleRight = factoryFunction("#paddleRight");
+    var paddleLeft = factoryFunction("#paddleLeft");
+    var ball = factoryFunction("#ball");
 
 
+    var KEY = {
+        'UP': 38,
+        'DOWN': 40,
+        'W': 87,
+        'S': 83,
+    }
+    
+}
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on("keydown", handleKeyDown);                         // change 'eventType' to the type of event you want to handle
+  $(document).on("keyup", handleKeyUp);
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -27,15 +50,41 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    moveRightPaddle();
+    moveLeftPaddle();
   }
   
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) {
+    //right paddle movement
+    if (event.which === KEY.UP) {
+        paddleRight.speedY = 5;
+    } else if (event.which === KEY.DOWN) {
+        paddleRight.speedY = -5;
+    }
+    //left paddle movement
+    if (event.which === KEY.W) {
+        paddleLeft.speedY = 5;
+    } else if (event.which === KEY.S) {
+        paddleLeft.speedY = -5;
+    }
+  }
 
+  function handleKeyUp(event) {
+      //right paddle movement
+      if (event.which === KEY.UP) {
+          paddleRight.speedY = 0;
+      } else if (event.which === KEY.DOWN) {
+          paddleRight.speedY = 0;
+      }
+      //left paddle movement
+      if (event.which === KEY.W) {
+          paddleLeft.speedY = 0;
+      } else if (event.which === KEY.S) {
+          paddleLeft.speedY = 0;
+      }
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -51,4 +100,13 @@ function runProgram(){
     $(document).off();
   }
   
+  function moveRightPaddle() {
+    paddleRight.speedY += paddleRight.speedY;
+    $("#paddleRight").css('top', paddleRight.y);
+  }
+
+  function moveLeftPaddle() {
+      paddleLeft.speedY += paddleLeft.speedY;
+      $("#paddleLeft").css('top', paddleLeft.y);
+  }
 }
