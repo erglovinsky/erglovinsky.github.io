@@ -21,6 +21,7 @@ function runProgram(){
         height: $(id).height(),
         speedX: 0,
         speedY: 0,
+        }
     }
 
     var paddleRight = factoryFunction("#paddleRight");
@@ -34,8 +35,7 @@ function runProgram(){
         'W': 87,
         'S': 83,
     }
-    
-}
+
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on("keydown", handleKeyDown);                         // change 'eventType' to the type of event you want to handle
@@ -50,8 +50,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    moveRightPaddle();
-    moveLeftPaddle();
+    repositionPaddles();
+    redrawPaddles();
   }
   
   /* 
@@ -99,14 +99,14 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
-  function moveRightPaddle() {
-    paddleRight.speedY += paddleRight.speedY;
-    $("#paddleRight").css('top', paddleRight.y);
+
+  function repositionPaddles() {
+      paddleRight.speedY += paddleRight.speedY;
+      paddleLeft.speedY += paddleLeft.speedY;
   }
 
-  function moveLeftPaddle() {
-      paddleLeft.speedY += paddleLeft.speedY;
+  function redrawPaddles() {
+      $("#paddleRight").css('top', paddleRight.y);
       $("#paddleLeft").css('top', paddleLeft.y);
   }
 }
