@@ -97,13 +97,13 @@ function runProgram(){
     } else if ((paddleRight.y + paddleRight.height > board.height) || (paddleRight.y < 0)){ // handles collision between right paddle and board boundary
         paddleRight.speedY = 0;
     } else if ((doCollide(ball, board) === false) && //handles collision between ball and the right side of the board (when points are earned)
-               (ball.x >= board.width)) {
+               (ball.x > board.width)) {
         let id = "#scoreLeft";
         score.left = score.left + 1 // increases score of left player by 1
         pointEarned(id,score.left); // updates the score display of left player
         setTimeout(ballStart, 2000); // waits 2 seconds then starts the ball randomly
     } else if ((doCollide(ball, board) === false) && //handles collision between ball and the left side of the board (when points are earned)
-               (ball.x <= board.x)) {
+               (ball.x < board.x)) {
         let id = "#scoreRight"
         score.right = score.right + 1 // increases score of right player by 1
         pointEarned(id,score.right); // updates the score display of right player
