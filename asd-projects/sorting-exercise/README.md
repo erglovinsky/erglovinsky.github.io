@@ -110,7 +110,7 @@ Implement bubble sort. Your comparison should check if the element with the lowe
 
 <details> <summary> Bubble Sort Walkthrough </summary>
 
-Bubble sort requires two nested loops. 
+The version of bubble sort used here requires two nested loops. 
 
 The outer loop will iterate over the entire provided `array` (simple enough, right?). 
 
@@ -223,7 +223,7 @@ For this TODO, you will only need to:
 1. Create the function skeleton
 2. Decide on a pivot
 3. Set up an important loop
-4. Return the new partition index (it won't be calculated properly yet, however)
+4. Return the new partition index 
 
 ### Step 1: Create the function skeleton
 
@@ -255,14 +255,9 @@ Put the `while` loop into your function after your `pivot` variable declaration.
 
 ### Step 4: Return the new partition index
 
-This step is simple. You only need to do two things.
+This step is simple. You only need to return `left + 1` as the new `index` for `quicksort`. 
 
-1. Check if `left` equals `right`. If the two are equal, then increase `left` by `1`.
-2. After the check, return `left` from the function.
-
-The value of `left` once `partition` has finished running is the new partition index for `quickSort`. 
-
-You need to make sure that `left` doesn't equal `right` at the end, because otherwise `quickSort` will (usually) never end. This is because of our choice of `pivot`. If we had said that `pivot = array[right].value` at the beginning, for example, we would not need to make this extra check.
+If you recall, the `index` value returned from `partition` back in `quicksort` is used to subdivide the array further for future calls to `quicksort`.
 
 ## TODO 5: `partition` Part 2
 
