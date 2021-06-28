@@ -2,16 +2,13 @@
 // as soon as the page loads and is where you should call your functions.
 $(document).ready(function(){
     const $display = $('#display');
-    // applyFilterNoBackground(reddify);
-    // applyFilter(decreaseBlue);
-    // applyFilter(increaseGreenByBlue);
-    // applySmudge(smudge);
-
     // TODO: Call your apply function(s) here
 
-
-
-
+    // these filters look awful altogether but they each look good separately!
+    applyFilterNoBackground(reddify);
+    applyFilter(increaseGreenByBlue);
+    applyFilterNoBackground(decreaseBlue);
+    smudgeImage(smudge);
 
     render($display, image);
 });
@@ -21,7 +18,6 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////
 
 // TODO 1 & 3: Create the applyFilter function here
-
 function applyFilter(filterFunction) {
     for (var i = 0; i < image.length; i++) {
         for (var j = 0; j < image[i].length; j++) {
@@ -34,7 +30,6 @@ function applyFilter(filterFunction) {
     }
 }
 
-
 // TODO 5: Create the applyFilterNoBackground function
 function applyFilterNoBackground(filterFunction) {
     for (var i = 0; i < image.length; i++) {
@@ -46,24 +41,6 @@ function applyFilterNoBackground(filterFunction) {
                 var rgbString = rgbArrayToString(rgbNumbers);
                 image[i][j] = rgbString;
             }
-        }
-    }
-
-}
-
-// Challenge
-function applySmudge(filterFunction) {
-    for (var i = 0; i < image.length; i++) {
-        for(var j = 0; j < image[i].length; j++) {
-            var rgbStringNeighbor = image[i][j];
-            var rgbStringPixel = image[i][j-1];
-            var rgbNumbersNeighbor = rgbStringToArray(rgbStringNeighbor);
-            var rgbNumbersPixel = rgbStringToArray(rgbStringPixel);
-            filterFunction(rgbNumbersNeighbor,rgbNumbersPixel);
-            var rgbStringNeighbor = rgbArrayToString(rgbNumbersNeighbor);
-            var rgbStringPixel = rgbArrayToString(rgbNumbersPixel);
-            image[i][j] = rgbStringNeighbor;
-            image[i][j-1] = rgbStringPixel
         }
     }
 
@@ -82,10 +59,30 @@ function increaseGreenByBlue(array){
     array[GREEN] = Math.min(array[GREEN] + array[BLUE], 255)
 }
 
-function smudge(neighbor, pixel){
-    pixel[RED] = neighbor[RED]
-    pixel[BLUE] = neighbor[BLUE];
-    pixel[GREEN] = neighbor[GREEN];
+// CHALLENGE code goes below here
+function smudgeImage(filterFunction) {
+    for (var i = 0; i < image.length; i++) {
+        for (var j = 0; j < image[i].length; j++) {
+            var rgbString = image[i][j];
+            var rgbStringNeighbor = image[i][Math.max(j-1,0)];
+            var rgbNumbers = rgbStringToArray(rgbString);
+            var rgbNumbersNeighbor = rgbStringToArray(rgbStringNeighbor);
+            filterFunction(rgbNumbers, rgbNumbersNeighbor);
+            var rgbString = rgbArrayToString(rgbNumbers);
+            var rgbStringNeighbor = rgbArrayToString(rgbNumbersNeighbor);
+            image[i][j] = rgbString;
+            image[i][Math.max(j-1,0)] = rgbStringNeighbor;
+        }
+    }
 }
 
-// CHALLENGE code goes below here
+function smudge(pixel, neighbor) {
+    temp1 = pixel[BLUE];
+    pixel[BLUE] = neighbor[BLUE];
+    neighbor[BLUE] = temp1;
+
+    temp2 = pixel[GREEN];
+    pixel[GREEN] = neighbor[GREEN];
+    neighbor[GREEN] = temp2;
+}
+
